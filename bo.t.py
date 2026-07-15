@@ -1,13 +1,11 @@
 from flask import Flask
 from telegram import Bot
-import os
+
+TOKEN = "8278568972:AAH5k5_t-ygko9hTVXH9yOEhPrH2K-8MYlU"
+CHAT_ID = "8278568972"
 
 app = Flask(__name__)
-
-TOKEN = os.environ.get("8278568972:AAGK-eFHDxAasYfb81Vw3K4jTZKvFycHbao")
-CHAT_ID = os.environ.get("5799767418")
-
-bot = Bot(8278568972:AAGK-eFHDxAasYfb81Vw3K4jTZKvFycHbao)
+bot = Bot(token=TOKEN)
 
 @app.route("/")
 def home():
@@ -15,8 +13,5 @@ def home():
 
 @app.route("/test")
 def test():
-    bot.send_message(
-        chat_id=CHAT_ID,
-        text="✅ XAUUSD signal bot ishlayapti!"
-    )
-    return "Xabar yuborildi"
+    bot.send_message(chat_id=CHAT_ID, text="✅ Bot ishlayapti!")
+    return "Xabar yuborildi!"
